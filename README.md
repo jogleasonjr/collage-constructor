@@ -1,2 +1,2 @@
 # collage-constructor
-Create a collage of multiple source images
+Create photo collages from multiple source images
