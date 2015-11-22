@@ -9,6 +9,6 @@ namespace CollageCommander.Cli.Services.Interfaces
 {
     interface IBuilderService
     {
-        Task<FileInfo> Build(string imagesPath, int imagesCount, int imageHeightWidth, int outputColumns, int outputRows);
+        Task<FileInfo> Build(string imagesPath, int imagesCount, int imageSize, int outputColumns, int outputRows);
     }
 }

@@ -23,17 +23,17 @@ namespace CollageCommander.Cli.Services
             _imageRepository = imageRepository;
         }
 
-        public override async Task<FileInfo> Build(string imagesPath, int imagesCount, int imageHeightWidth, int outputColumns, int outputRows)
+        public override async Task<FileInfo> Build(string imagesPath, int imagesCount, int imageSize, int outputColumns, int outputRows)
         {
             var sandbox = CreateTempSandboxDirectory();
             var images = await _imageRepository.Get(imagesPath, imagesCount);
 
             foreach (var image in images)
             {
-                ResizeImage(image.FullName, sandbox.FullName, imageHeightWidth, imageHeightWidth);
+                ResizeImage(image.FullName, sandbox.FullName, imageSize, imageSize);
             }
 
-            using (var outputImage = new Bitmap(outputColumns * imageHeightWidth, outputRows * imageHeightWidth))
+            using (var outputImage = new Bitmap(outputColumns * imageSize, outputRows * imageSize))
             {
                 using (var outputGfx = Graphics.FromImage(outputImage))
                 {
@@ -43,7 +43,7 @@ namespace CollageCommander.Cli.Services
                         {
                             using (var thumbnail = GetRandomImageFromDirectory(sandbox.FullName))
                             {
-                                outputGfx.DrawImage(thumbnail, x * imageHeightWidth, y * imageHeightWidth);
+                                outputGfx.DrawImage(thumbnail, x * imageSize, y * imageSize);
                             }
                         }
                     }

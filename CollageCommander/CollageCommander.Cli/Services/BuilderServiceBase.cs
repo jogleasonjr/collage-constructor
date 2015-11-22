@@ -7,7 +7,7 @@ namespace CollageCommander.Cli.Services
 {
     public abstract class BuilderServiceBase : IBuilderService
     {
-        public abstract Task<FileInfo> Build(string imagesPath, int imagesCount, int imageHeightWidth, int outputColumns, int outputRows);
+        public abstract Task<FileInfo> Build(string imagesPath, int imagesCount, int imageSize, int outputColumns, int outputRows);
 
         protected DirectoryInfo CreateTempSandboxDirectory()
         {
