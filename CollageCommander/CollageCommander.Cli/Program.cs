@@ -27,24 +27,4 @@ namespace CollageCommander.Cli
             Process.Start(outputFile.FullName);
         }
     }
-
-    class Builder
-    {
-        public async Task Build()
-        {
-            var googs = new GoogleImageRepository();
-
-            var wat = await googs.Get("panda", 9);
-            var c = wat.Count();
-            var file1 = wat.First();
-            Process.Start(file1.FullName);
-
-        }
-    }
-
-    public interface IBuilder
-    {
-        Task Build();
-    }
-
 }
