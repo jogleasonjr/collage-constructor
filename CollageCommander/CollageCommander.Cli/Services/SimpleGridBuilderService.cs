@@ -64,6 +64,9 @@ namespace CollageCommander.Cli.Services
         }
 
 
+        /// <summary>
+        /// Accredation: http://stackoverflow.com/a/2001692
+        /// </summary>
         protected static void ResizeImage(string imagePath, string outputDir, int canvasWidth, int canvasHeight)
         {
             Image image = Image.FromFile(imagePath);
