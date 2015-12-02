@@ -17,11 +17,11 @@ namespace CollageCommander.Cli
         static void Main(string[] args)
         {
             var builder = Container.Resolve<IBuilderService>();
-            var buildTask = builder.Build("owl",
-                                          imagesCount: 64,
+            var buildTask = builder.Build(@"C:\Users\John\Downloads\1Y",
+                                          imagesCount: 144,
                                           imageSize: 256,
-                                          outputColumns: 8,
-                                          outputRows: 8);
+                                          outputColumns: 14,
+                                          outputRows: 11);
 
             var outputFile = buildTask.Result;
             Process.Start(outputFile.FullName);

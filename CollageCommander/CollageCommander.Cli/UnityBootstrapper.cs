@@ -17,7 +17,8 @@ namespace CollageCommander.Cli
         {
             var container = new UnityContainer();
 
-            container.RegisterType<IImageRepository, GoogleImageRepository>();
+            //container.RegisterType<IImageRepository, GoogleImageRepository>();
+            container.RegisterType<IImageRepository, LocalDirectoryRepository>();
             container.RegisterType<IBuilderService, SimpleGridBuilderService>();
 
             return container;
